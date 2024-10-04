@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MainView index{% endblock %}
+
+{% block body %}
+    <h1>MainView index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Controller</th>
+                <th>Plid</th>
+                <th>Url</th>
+                <th>Position</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for main_view in main_views %}
+            <tr>
+                <td>{{ main_view.id }}</td>
+                <td>{{ main_view.name }}</td>
+                <td>{{ main_view.controller }}</td>
+                <td>{{ main_view.plid }}</td>
+                <td>{{ main_view.url }}</td>
+                <td>{{ main_view.position }}</td>
+                <td>{{ main_view.status ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_main_view_show', {'id': main_view.id}) }}">show</a>
+                    <a href="{{ path('app_main_view_edit', {'id': main_view.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_main_view_new') }}">Create new</a>
+{% endblock %}

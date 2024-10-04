@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit MainView{% endblock %}
+
+{% block body %}
+    <h1>Edit MainView</h1>
+
+    {{ include('main_view/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_main_view_index') }}">back to list</a>
+
+    {{ include('main_view/_delete_form.html.twig') }}
+{% endblock %}
