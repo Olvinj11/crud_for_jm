@@ -1,45 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Subsection index{% endblock %}
+{% block title %}Subsection{% endblock %}
 
 {% block body %}
-    <h1>Subsection index</h1>
+    <div class="container mt-4">
+        <h1 class="mb-4">Subsections</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Controller</th>
-                <th>Plid</th>
-                <th>Url</th>
-                <th>Position</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for subsection in subsections %}
-            <tr>
-                <td>{{ subsection.id }}</td>
-                <td>{{ subsection.name }}</td>
-                <td>{{ subsection.controller }}</td>
-                <td>{{ subsection.plid }}</td>
-                <td>{{ subsection.url }}</td>
-                <td>{{ subsection.position }}</td>
-                <td>{{ subsection.status ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('app_subsection_show', {'id': subsection.id}) }}">show</a>
-                    <a href="{{ path('app_subsection_edit', {'id': subsection.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="mb-3">
+            <a href="{{ path('app_subsection_new') }}" class="btn btn-success">Create New Subsection</a>
+        </div>
 
-    <a href="{{ path('app_subsection_new') }}">Create new</a>
+        <table class="table table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Controller</th>
+                    <th scope="col">Plid</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for subsection in subsections %}
+                <tr>
+                    <td>{{ subsection.id }}</td>
+                    <td>{{ subsection.name }}</td>
+                    <td>{{ subsection.controller }}</td>
+                    <td>{{ subsection.plid }}</td>
+                    <td>{{ subsection.url }}</td>
+                    <td>{{ subsection.position }}</td>
+                    <td>{{ subsection.status ? 'Yes' : 'No' }}</td>
+                    <td class="text-center">
+                        <a href="{{ path('app_subsection_show', {'id': subsection.id}) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ path('app_subsection_edit', {'id': subsection.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8" class="text-center">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
