@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/main/view')]
+#[Route('/main_views')]
 final class MainViewController extends AbstractController
 {
     #[Route(name: 'app_main_view_index', methods: ['GET'])]
