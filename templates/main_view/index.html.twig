@@ -7,10 +7,6 @@
 {% block body %}
   <h1>Main Views</h1>
 
-  <div class="mb-3">
-    <a href="{{ path('app_main_view_new') }}" class="btn btn-primary">New</a>
-  </div>
-
   <table class="table">
     <thead>
       <tr>
@@ -38,4 +34,7 @@
       {% endfor %}
     </tbody>
   </table>
+  <div class="mb-3">
+    <a href="{{ path('app_main_view_new') }}" class="btn btn-primary">Create New</a>
+  </div>
 {% endblock %}
