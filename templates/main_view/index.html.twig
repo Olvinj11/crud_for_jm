@@ -7,14 +7,14 @@
 <h1>Main Views</h1>
 
 <div class="mb-3">
-    <a href="{{ path('app_main_view_new') }}" class="btn btn-primary">Crear Nuevo</a>
+    <a href="{{ path('app_main_view_new') }}" class="btn btn-primary">New</a>
 </div>
 
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Namw</th>
+            <th>Name</th>
             <th>Controller</th>
             <th>Action</th>
         </tr>
@@ -26,11 +26,11 @@
                 <td>{{ main_view.name }}</td>
                 <td>{{ main_view.controller }}</td>
                 <td>
-                    <a href="{{ path('app_main_view_new', {'id': main_view.id}) }}" class="btn btn-info">Ver</a>
-                    <a href="{{ path('app_main_view_edit', {'id': main_view.id}) }}" class="btn btn-warning">Editar</a>
+                    <a href="{{ path('app_main_view_new', {'id': main_view.id}) }}" class="btn btn-info">Show</a>
+                    <a href="{{ path('app_main_view_edit', {'id': main_view.id}) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ path('app_main_view_delete', {'id': main_view.id}) }}" method="POST" style="display:inline;">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ main_view.id) }}">
-                        <button class="btn btn-danger">Eliminar</button>
+                        <button class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
