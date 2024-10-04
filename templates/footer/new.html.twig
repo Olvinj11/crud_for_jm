@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Footer{% endblock %}
+{% block title %}
+  Create New Item Footer
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Footer</h1>
+  <div class="container mt-4">
+    <h1 class="mb-4">Create New Item Footer</h1>
 
     {{ include('footer/_form.html.twig') }}
 
-    <a href="{{ path('app_footer_index') }}">back to list</a>
+    <a class="btn btn-secondary mt-3" href="{{ path('app_footer_index') }}">Back to List</a>
+  </div>
 {% endblock %}

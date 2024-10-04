@@ -1,43 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Footer index{% endblock %}
+{% block title %}
+  Footer
+{% endblock %}
 
 {% block body %}
-    <h1>Footer index</h1>
+  <div class="container mt-4">
+    <h1 class="mb-4">Footer</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Icon</th>
-                <th>Url</th>
-                <th>Status</th>
-                <th>Position</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Icon</th>
+          <th>Url</th>
+          <th>Status</th>
+          <th>Position</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for footer in footers %}
-            <tr>
-                <td>{{ footer.id }}</td>
-                <td>{{ footer.name }}</td>
-                <td>{{ footer.icon }}</td>
-                <td>{{ footer.url }}</td>
-                <td>{{ footer.status ? 'Yes' : 'No' }}</td>
-                <td>{{ footer.position }}</td>
-                <td>
-                    <a href="{{ path('app_footer_show', {'id': footer.id}) }}">show</a>
-                    <a href="{{ path('app_footer_edit', {'id': footer.id}) }}">edit</a>
-                </td>
-            </tr>
+          <tr>
+            <td>{{ footer.id }}</td>
+            <td>{{ footer.name }}</td>
+            <td>{{ footer.icon }}</td>
+            <td>
+              <a href="{{ footer.url }}" target="_blank">{{ footer.url }}</a>
+            </td>
+            <td>{{ footer.status ? 'Yes' : 'No' }}</td>
+            <td>{{ footer.position }}</td>
+            <td>
+              <a class="btn btn-info btn-sm" href="{{ path('app_footer_show', { id: footer.id }) }}">Show</a>
+              <a class="btn btn-warning btn-sm" href="{{ path('app_footer_edit', { id: footer.id }) }}">Edit</a>
+            </td>
+          </tr>
         {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+          <tr>
+            <td colspan="7" class="text-center">No records found</td>
+          </tr>
         {% endfor %}
-        </tbody>
+      </tbody>
     </table>
 
-    <a href="{{ path('app_footer_new') }}">Create new</a>
+    <div class="mt-4">
+      <a class="btn btn-success" href="{{ path('app_footer_new') }}">Create New</a>
+    </div>
+  </div>
 {% endblock %}
