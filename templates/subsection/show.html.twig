@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subsection{% endblock %}
+
+{% block body %}
+    <h1>Subsection</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ subsection.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ subsection.name }}</td>
+            </tr>
+            <tr>
+                <th>Controller</th>
+                <td>{{ subsection.controller }}</td>
+            </tr>
+            <tr>
+                <th>Plid</th>
+                <td>{{ subsection.plid }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ subsection.url }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ subsection.position }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ subsection.status ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_subsection_index') }}">back to list</a>
+
+    <a href="{{ path('app_subsection_edit', {'id': subsection.id}) }}">edit</a>
+
+    {{ include('subsection/_delete_form.html.twig') }}
+{% endblock %}

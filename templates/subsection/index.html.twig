@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subsection index{% endblock %}
+
+{% block body %}
+    <h1>Subsection index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Controller</th>
+                <th>Plid</th>
+                <th>Url</th>
+                <th>Position</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subsection in subsections %}
+            <tr>
+                <td>{{ subsection.id }}</td>
+                <td>{{ subsection.name }}</td>
+                <td>{{ subsection.controller }}</td>
+                <td>{{ subsection.plid }}</td>
+                <td>{{ subsection.url }}</td>
+                <td>{{ subsection.position }}</td>
+                <td>{{ subsection.status ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_subsection_show', {'id': subsection.id}) }}">show</a>
+                    <a href="{{ path('app_subsection_edit', {'id': subsection.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_subsection_new') }}">Create new</a>
+{% endblock %}
