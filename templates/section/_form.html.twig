@@ -1,4 +1,41 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'form'}}) }}
+<div class="mb-3">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.name) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.controller) }}
+    {{ form_widget(form.controller, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.controller) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.plid) }}
+    {{ form_widget(form.plid, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.plid) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.url) }}
+    {{ form_widget(form.url, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.url) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.position) }}
+    {{ form_widget(form.position, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.position) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.status) }}
+    {{ form_widget(form.status, {'attr': {'class': 'form-check-input'}}) }}
+    {{ form_errors(form.status) }}
+</div>
+
+    <div class="text-end">
+        <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}

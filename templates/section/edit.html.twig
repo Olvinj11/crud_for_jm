@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Section{% endblock %}
+{% block title %}
+  Edit Section
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Section</h1>
+  <div class="container mt-4">
+    <h1 class="mb-4">Edit Section</h1>
 
-    {{ include('section/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('section/_form.html.twig', { button_label: 'Update' }) }}
 
-    <a href="{{ path('app_section_index') }}">back to list</a>
+    <div class="mt-3">
+      <a href="{{ path('app_section_index') }}" class="btn btn-secondary">Back to List</a>
+    </div>
+
+    <hr class="my-4" />
 
     {{ include('section/_delete_form.html.twig') }}
+  </div>
 {% endblock %}
