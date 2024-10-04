@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit MainView{% endblock %}
+{% block title %}
+  Edit MainView
+{% endblock %}
 
 {% block body %}
+  <div class="container mt-5">
     <h1>Edit MainView</h1>
 
-    {{ include('main_view/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="card">
+      <div class="card-body">{{ include('main_view/_form.html.twig', { button_label: 'Update' }) }}</div>
+    </div>
 
-    <a href="{{ path('app_main_view_index') }}">back to list</a>
+    <div class="mt-3">
+      <a href="{{ path('app_main_view_index') }}" class="btn btn-secondary">Back to List</a>
+    </div>
 
     {{ include('main_view/_delete_form.html.twig') }}
+  </div>
 {% endblock %}
